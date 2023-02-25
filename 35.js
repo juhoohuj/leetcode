@@ -4,14 +4,20 @@
 * @return {number}
 */
 var searchInsert = function(nums, t) {
-    if (nums.includes(t)) return nums.indexOf(t)
+    let f = nums.indexOf(nums.find(e => e > t));
+    let i = 0
+    if (nums.includes(t)) i = nums.indexOf(t)
 
-    else {
-        let f = array1.find(e => e > t);
-        if(f == -1) return (nums[nums.length - 1]) + 1
-        return nums.indexOf(f)
+    if (!nums.includes(t)) {
+        if(f == -1) {
+            i = nums.length
+        }
+        else  i = f
     }
 
+    return i
 };
 
+let arr = [1,3,5,6]
 
+console.log(searchInsert(arr, 7))
